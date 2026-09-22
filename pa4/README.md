@@ -71,8 +71,9 @@ API, not this field; a public test checks that too.
 ### `mock-pricing/` — the pricing API (given, not a TODO)
 
 `GET http://localhost:4100/pricing/:productId`, authenticated with an
-`X-API-Key` header (see `docker-compose.yml` for the key — discovering it
-there, not being told it here, is the point). Returns `200` with
+`X-API-Key` header — the key is set in `docker-compose.yml`, and
+`starter/src/transform.ts` already exports it as `DEFAULT_PRICING_API_KEY`.
+Returns `200` with
 `{ productId, unitPrice, currency, taxRate, productName }`, `401` on a
 missing/wrong key, `404` on an unknown product id. `GET /pricing` returns
 the full catalog. See `mock-pricing/server.js` for the (also given) admin
